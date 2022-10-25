@@ -11,6 +11,8 @@ date = df['Date'].values.tolist()
 name = df['Name'].values.tolist()
 transaction = df['Transaction'].values.tolist()
 
+##FIXING OVERALL LIST FORMAT
+
 #Fixing date format
 fixed_date = []
 for entry in date:
@@ -44,11 +46,27 @@ for cost in transaction:
         cost = format(cost, '.2f')
         fixed_transaction.append(cost)
         expenditure.append("In")
-    else:
-        print("cost calcualtion error")
-        
 
-pprint.pprint(fixed_transaction)
-pprint.pprint(expenditure)
+#Fixing naming format
+fixed_name = []
+for description in name:
+    description = description.strip()
+    description = description.rstrip("(GOOGLE PAY)")
+
+    description = description.rstrip("ON")
+    description = description.rstrip("BC")
+    description = description.rstrip("AB")
+    description = description.rstrip()
+
+    description = description.rstrip("MISSISSAUGA")
+    description = description.rstrip("TORONTO")
+    description = description.rstrip("ETOBICOKE")
+    description = description.rstrip("VANCOUVER")
+    description = description.rstrip()
+    
+    fixed_name.append(description)
+
+pprint.pprint(fixed_name)
+
 
 
