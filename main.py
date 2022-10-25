@@ -1,9 +1,13 @@
-import csv
+import pandas
 
+Date = 0
+Name = 1
+Transaction = 2
 
 ### CSV reader ###
 
-with open('pcbanking.csv') as csv_file:
-    csv_reader = csv.reader(csv_file, delimiter=',')
+df = pandas.read_csv('pcbanking.csv',
+                    names=['Date','Name','Transaction'])
 
-print(csv_reader)
+print(df)
+print(type(df))
