@@ -15,6 +15,7 @@ transaction = df['Transaction'].values.tolist()
 
 #Fixing date format
 fixed_date = []
+
 for entry in date:
     seperated = entry.split("/")
     if len(seperated[Configuration.MONTH]) == 1:
@@ -49,8 +50,10 @@ for cost in transaction:
 
 #Fixing naming format
 fixed_name = []
+
 for description in name:
     description = description.strip()
+    
     description = description.rstrip("(GOOGLE PAY)")
 
     description = description.rstrip("ON")
