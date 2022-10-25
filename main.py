@@ -1,6 +1,6 @@
 import pandas as pd
 import pprint
-from constants import Configuration
+from config import Configuration
 
 #Creating a dataframe out of the CSV file
 df = pd.read_csv('pcbanking.csv',
