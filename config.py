@@ -35,9 +35,13 @@ class Checklist:
                     "ETrans to - ",
                     "ETrans from -"
                     ]
+    
     #End checklist
     e_checklist = ["EAT","EATS"]
     #End replacements
     e_replacements = ["UberEats - ",
                     "UberEats - "
                     ]
+
+    #Remove checklist
+    r_checklist = [""]
