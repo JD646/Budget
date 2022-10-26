@@ -50,7 +50,7 @@ class scotia_visa:
             # Inserts entry into fixed_date list
             self.fixed_date.append(entry)
     
-    #Fixing transaction format
+    #Fixes transaction format
     def fix_transaction(self):    
 
         # Produces list of the direction of money flow, formats to 2 sig figs, adds to fixed_transaction list
@@ -66,7 +66,7 @@ class scotia_visa:
                 self.fixed_transaction.append(cost)
                 self.expenditure.append("In")
 
-    #Fixing naming format
+    #Fixes naming format
     def fix_name(self):
         
         # Manual checks for things to strip
@@ -168,7 +168,7 @@ class scotia_debit:
 
 
     
-    #Fixing transaction format
+    #Fixes transaction format
     def fix_transaction(self):    
 
         # Produces list of the direction of money flow, formats to 2 sig figs, adds to fixed_transaction list
@@ -185,7 +185,7 @@ class scotia_debit:
                 self.expenditure.append("In")
 
 
-    #Fixing naming format
+    #Fixes naming format
     def fix_name(self):
 
         # Manual checks for things to strip
