@@ -2,3 +2,4 @@ venv/
 .DS_store
 bank/
 __pycache__/
+credentials.json
