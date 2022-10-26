@@ -38,15 +38,17 @@ for file in csvs:
         td.clean_up()
 
 #testcases
-print("Everything checks out chief")
 #pprint.pprint(visa.fixed_date)
 #pprint.pprint(visa.fixed_name)
 #pprint.pprint(debit.fixed_date)
 #pprint.pprint(debit.fixed_name)
 #pprint.pprint(mint.fixed_transaction)
+#pprint.pprint(mint.fixed_name)
 #pprint.pprint(mint.expenditure)
 #pprint.pprint(mint.fixed_date)
 #pprint.pprint(td.fixed_transaction)
 #pprint.pprint(td.expenditure)
 #pprint.pprint(td.fixed_date)
 #pprint.pprint(td.fixed_name)
+
+print("Everything checks out chief")
