@@ -67,12 +67,13 @@ class td:
                 self.fixed_transaction.append(cost)
                 self.expenditure.append("Out")
 
-    #Fixing naming format
+    #Fixes naming format
     def fix_name(self):
         
         for description in self.name:
             x = 0
             
+            #Check if description contains words from remove checklist
             while x == 0:
                 description = description.strip()
                 for word in Checklist.r_checklist:

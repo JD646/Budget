@@ -72,6 +72,7 @@ class scotia_visa:
         for description in self.name:
             x = 0
             
+            #Check if description contains words from remove checklist
             while x == 0:
                 description = description.strip()
                 for word in Checklist.r_checklist:
@@ -170,6 +171,7 @@ class scotia_debit:
         for description in self.name:
             x = 0
             
+            #Check if description contains words from remove checklist
             while x == 0:
                 description = description.strip()
                 for word in Checklist.r_checklist:
@@ -188,5 +190,6 @@ class scotia_debit:
             for i, word in enumerate(Checklist.s_checklist):
                 if description.startswith(word):
                     description = Checklist.s_replacements[i]
+                    
             #Insert into fixed_name list
             self.fixed_name.append(description)

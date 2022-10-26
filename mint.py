@@ -71,12 +71,13 @@ class mint:
             cost = format(cost, '.2f')
             self.fixed_transaction.insert(0, cost)
 
-    #Fixing naming format
+    #Fixes naming format
     def fix_name(self):
         
         for description in self.name:
             x = 0
             
+            #Check if description contains words from remove checklist
             while x == 0:
                 description = description.strip()
                 for word in Checklist.r_checklist:
@@ -95,6 +96,6 @@ class mint:
             for i, word in enumerate(Checklist.s_checklist):
                 if description.startswith(word):
                     description = Checklist.s_replacements[i]
-                    
+
             # Inserts entry into front of list -> Due to format of mint file
             self.fixed_name.insert(0, description)
