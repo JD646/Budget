@@ -33,11 +33,18 @@ class Checklist:
                     "Transfer Scotia - Debit -> Scotia - Visa",
                     "Home Management Fee",
                     "ETrans to - ",
-                    "ETrans from -"
+                    "ETrans from - "
                     ]
+    
     #End checklist
     e_checklist = ["EAT","EATS"]
     #End replacements
     e_replacements = ["UberEats - ",
                     "UberEats - "
                     ]
+
+    #Remove checklist
+    r_checklist = ["(GOOGLE PAY)", "(APPLE PAY)", " ", 
+                   "ON","BC", "AB", "QC",
+                   "MISSISSAUGA","Mississauga","TORONTO","ETOBICOKE","VANCOUVER","VERDUN","CONCORD",
+                   "VAUGHAN","WATERLOO","HAMILTON","OAKVILLE","MISISSAUGA","MISSISS"]

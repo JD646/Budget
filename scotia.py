@@ -68,48 +68,34 @@ class scotia_visa:
 
     #Fixes naming format
     def fix_name(self):
-        
-        # Manual checks for things to strip
+
         for description in self.name:
-            description = description.strip()
+            x = 0
             
-            description = description.rstrip("(GOOGLE PAY)")
-            description = description.rstrip("(APPLE PAY)")
-            description = description.rstrip()
-
-            description = description.rstrip("ON")
-            description = description.rstrip("BC")
-            description = description.rstrip("AB")
-            description = description.rstrip("QC")
-            description = description.rstrip()
-
-            description = description.rstrip("MISSISSAUGA")
-            description = description.rstrip("Mississauga")
-            description = description.rstrip("TORONTO")
-            description = description.rstrip("ETOBICOKE")
-            description = description.rstrip("VANCOUVER")
-            description = description.rstrip("VERDUN")
-            description = description.rstrip("CONCORD")
-            description = description.rstrip("VAUGHAN")
-            description = description.rstrip("WATERLOO")
-            description = description.rstrip("HAMILTON")
-            description = description.rstrip("OAKVILLE")
-            description = description.rstrip()
-
-            #Checks for content existing in end checklist
-            for i, item in enumerate(Checklist.e_checklist):
-                x = re.search(item + "$" , description)
-                if x != None:
+            #Check if description contains words from remove checklist
+            while x == 0:
+                description = description.strip()
+                for word in Checklist.r_checklist:
+                    if description.endswith(word):
+                        description = description.rstrip(word)
+                        description = description.strip()
+                    else:
+                        x = 1
+            
+            #Checks for content existing in end checklist, replaces with replacement
+            for i, word in enumerate(Checklist.e_checklist):
+                if description.endswith(word):
                     description = Checklist.e_replacements[i]
 
-            #Checks for content existing in start checklist
-            for i, item in enumerate(Checklist.s_checklist):
-                x = re.search("^" + item, description)
-                if x != None:
+            #Checks for content existing in start checklist, replaces with replacement
+            for i, word in enumerate(Checklist.s_checklist):
+                if description.startswith(word):
                     description = Checklist.s_replacements[i]
+
             #Insert into fixed_name list
             self.fixed_name.append(description)
 
+###-----------------------------------------------------------------
 
 # Class for scotia debit
 class scotia_debit:
@@ -182,43 +168,28 @@ class scotia_debit:
     #Fixes naming format
     def fix_name(self):
 
-        # Manual checks for things to strip
         for description in self.name:
-            description = description.strip()
+            x = 0
             
-            description = description.rstrip("(GOOGLE PAY)")
-            description = description.rstrip("(APPLE PAY)")
-            description = description.rstrip()
-
-            description = description.rstrip("ON")
-            description = description.rstrip("BC")
-            description = description.rstrip("AB")
-            description = description.rstrip("QC")
-            description = description.rstrip()
-
-            description = description.rstrip("MISSISSAUGA")
-            description = description.rstrip("Mississauga")
-            description = description.rstrip("TORONTO")
-            description = description.rstrip("ETOBICOKE")
-            description = description.rstrip("VANCOUVER")
-            description = description.rstrip("VERDUN")
-            description = description.rstrip("CONCORD")
-            description = description.rstrip("VAUGHAN")
-            description = description.rstrip("WATERLOO")
-            description = description.rstrip("HAMILTON")
-            description = description.rstrip("OAKVILLE")
-            description = description.rstrip()
-
-            #Checks for content existing in end checklist
-            for i, item in enumerate(Checklist.e_checklist):
-                x = re.search(item + "$" , description)
-                if x != None:
+            #Check if description contains words from remove checklist
+            while x == 0:
+                description = description.strip()
+                for word in Checklist.r_checklist:
+                    if description.endswith(word):
+                        description = description.rstrip(word)
+                        description = description.strip()
+                    else:
+                        x = 1
+            
+            #Checks for content existing in end checklist, replaces with replacement
+            for i, word in enumerate(Checklist.e_checklist):
+                if description.endswith(word):
                     description = Checklist.e_replacements[i]
 
-            #Checks for content existing in start checklist
-            for i, item in enumerate(Checklist.s_checklist):
-                x = re.search("^" + item, description)
-                if x != None:
+            #Checks for content existing in start checklist, replaces with replacement
+            for i, word in enumerate(Checklist.s_checklist):
+                if description.startswith(word):
                     description = Checklist.s_replacements[i]
+                    
             #Insert into fixed_name list
             self.fixed_name.append(description)
