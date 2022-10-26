@@ -5,6 +5,7 @@ import sys
 from config import Configuration
 from scotia import scotia_visa, scotia_debit
 from mint import mint
+from td import td
 
 
 os.chdir('bank')
@@ -32,12 +33,19 @@ for file in csvs:
         mint_path = file
         mint = mint(mint_path)
         mint.clean_up()
+    
+    elif "td" in file:
+        td_path = file
+        td = td(td_path)
+        td.clean_up()
 
 #testcases
 #pprint.pprint(visa.fixed_date)
 #pprint.pprint(visa.fixed_name)
 #pprint.pprint(debit.fixed_date)
 #pprint.pprint(debit.fixed_name)
-pprint.pprint(mint.fixed_transaction)
+#pprint.pprint(mint.fixed_transaction)
 #pprint.pprint(mint.expenditure)
-pprint.pprint(mint.fixed_date)
+#pprint.pprint(mint.fixed_date)
+pprint.pprint(td.fixed_transaction)
+pprint.pprint(td.expenditure)
