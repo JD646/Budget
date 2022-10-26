@@ -14,6 +14,7 @@ for file in x:
     if '.csv' in file:
         csvs.append(file)
         
+print(csvs)
 
 for file in csvs:
     if 'Scotia_Visa' in file:
@@ -28,7 +29,7 @@ for file in csvs:
         debit.clean_up()
 
 #testcases
-pprint.pprint(visa.fixed_date)
+#pprint.pprint(visa.fixed_date)
 pprint.pprint(visa.fixed_name)
-pprint.pprint(debit.fixed_date)
+#pprint.pprint(debit.fixed_date)
 pprint.pprint(debit.fixed_name)

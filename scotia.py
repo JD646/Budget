@@ -1,5 +1,6 @@
-from config import Configuration
+from config import Configuration, Checklist
 import pandas as pd
+import re
 class scotia_visa:
     def __init__(self, visa_path):
         
@@ -61,23 +62,50 @@ class scotia_visa:
 
     #Fixing naming format
     def fix_name(self):
+        
 
         for description in self.name:
             description = description.strip()
             
             description = description.rstrip("(GOOGLE PAY)")
+            description = description.rstrip("(APPLE PAY)")
+            description = description.rstrip()
 
             description = description.rstrip("ON")
             description = description.rstrip("BC")
             description = description.rstrip("AB")
+            description = description.rstrip("QC")
             description = description.rstrip()
 
             description = description.rstrip("MISSISSAUGA")
+            description = description.rstrip("Mississauga")
             description = description.rstrip("TORONTO")
             description = description.rstrip("ETOBICOKE")
             description = description.rstrip("VANCOUVER")
+            description = description.rstrip("VERDUN")
+            description = description.rstrip("CONCORD")
+            description = description.rstrip("VAUGHAN")
+            description = description.rstrip("WATERLOO")
+            description = description.rstrip("HAMILTON")
+            description = description.rstrip("OAKVILLE")
             description = description.rstrip()
-            
+
+            description = description.rstrip("866-712-7753")
+            description = description.rstrip("C02404")
+            description = description.rstrip("C02404")
+            description = description.rstrip("#9685")
+            description = description.rstrip()
+
+            for i, item in enumerate(Checklist.e_checklist):
+                x = re.search(item + "$" , description)
+                if x != None:
+                    description = Checklist.e_replacements[i]
+
+            for i, item in enumerate(Checklist.s_checklist):
+                x = re.search("^" + item, description)
+                if x != None:
+                    description = Checklist.s_replacements[i]
+
             self.fixed_name.append(description)
 
 
@@ -85,7 +113,7 @@ class scotia_debit:
     def __init__(self, debit_path):
         #Creating a dataframe out of the CSV file
         df = pd.read_csv(debit_path,
-                            names=['Date','Name','Transaction'])
+                            names=['Date','Transaction','nada1','Name','nada2'])
 
         #Creation of lists
         date = df['Date'].values.tolist()
@@ -161,5 +189,15 @@ class scotia_debit:
             description = description.rstrip("ETOBICOKE")
             description = description.rstrip("VANCOUVER")
             description = description.rstrip()
+            
+            for i, item in enumerate(Checklist.e_checklist):
+                x = re.search(item + "$" , description)
+                if x != None:
+                    description = Checklist.e_replacements[i]
+
+            for i, item in enumerate(Checklist.s_checklist):
+                x = re.search("^" + item, description)
+                if x != None:
+                    description = Checklist.s_replacements[i]
             
             self.fixed_name.append(description)
