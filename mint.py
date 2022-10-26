@@ -49,7 +49,7 @@ class mint:
 
             seperated[Configuration.MONTH], seperated[Configuration.DAY] = seperated[Configuration.DAY], seperated[Configuration.MONTH]
             entry = "-".join(seperated)
-            self.fixed_date.append(entry)
+            self.fixed_date.insert(0, entry)
     
     #Fixing transaction format
     def fix_transaction(self):    
@@ -63,7 +63,7 @@ class mint:
         
         for cost in self.transaction:
             cost = format(cost, '.2f')
-            self.fixed_transaction.append(cost)
+            self.fixed_transaction.insert(0, cost)
 
     #Fixing naming format
     def fix_name(self):
@@ -111,4 +111,4 @@ class mint:
                 if x != None:
                     description = Checklist.s_replacements[i]
 
-            self.fixed_name.append(description)
+            self.fixed_name.insert(0, description)

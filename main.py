@@ -35,8 +35,9 @@ for file in csvs:
 
 #testcases
 #pprint.pprint(visa.fixed_date)
-pprint.pprint(visa.fixed_name)
+#pprint.pprint(visa.fixed_name)
 #pprint.pprint(debit.fixed_date)
-pprint.pprint(debit.fixed_name)
+#pprint.pprint(debit.fixed_name)
 pprint.pprint(mint.fixed_transaction)
-pprint.pprint(mint.expenditure)
+#pprint.pprint(mint.expenditure)
+pprint.pprint(mint.fixed_date)
