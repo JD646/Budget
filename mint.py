@@ -1,6 +1,5 @@
 from config import Date, Checklist
 import pandas as pd
-import re
 
 # class for mint csv files
 class mint:
@@ -59,9 +58,8 @@ class mint:
     def fix_transaction(self):    
         
         # Produces list of the direction of money flow
-        for i, expend in enumerate(self.ttype):
-            x = re.search("^debit", expend)
-            if x != None:
+        for expend in self.ttype:
+            if expend.startswith("debit"):
                 self.expenditure.append("Out")
             else:
                 self.expenditure.append("In")

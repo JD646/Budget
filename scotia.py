@@ -1,6 +1,6 @@
 from config import Date, Checklist
 import pandas as pd
-import re
+
 # Class for scotia visa
 class scotia_visa:
     def __init__(self, visa_path):

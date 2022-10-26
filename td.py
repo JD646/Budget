@@ -1,6 +1,7 @@
 from config import Date, Checklist
 import pandas as pd
-import re
+
+#Class for TD Debit
 class td:
     def __init__(self, td_path):
         
