@@ -10,7 +10,8 @@ class Checklist:
     s_checklist = ["AMZN","FROM","UBER","LYFT","PRESTO","BERTO",
                 "SONNET","TIM","MCDONALD","Amazon","VIRGIN",
                 "ROSE","FRESHCO","PAT","DOLLARAMA","APPLE","Riot",
-                "GOOGLE","Customer Transfer","PCC","SEND","E-TRANSFER"]
+                "GOOGLE","Customer Transfer","PCC","SEND","E-TRANSFER",
+                "VAPE", "SHELL", "PHO BROTHERS"]
     #Start replacements
     s_replacements = ["AMZN - ",
                     "Transfer Scotia - Debit -> Scotia - Visa",
@@ -33,7 +34,10 @@ class Checklist:
                     "Transfer Scotia - Debit -> Scotia - Visa",
                     "Home Management Fee",
                     "ETrans to - ",
-                    "ETrans from - "
+                    "ETrans from - ",
+                    "mBappe",
+                    "Shell - ",
+                    "Pho Bros"
                     ]
     
     #End checklist

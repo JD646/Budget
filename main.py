@@ -46,7 +46,7 @@ for file in csvs:
 
         #testcases
         #pprint.pprint(mint.fixed_date)
-        #pprint.pprint(mint.fixed_name)
+        pprint.pprint(mint.fixed_name)
         #pprint.pprint(mint.fixed_transaction)
         #pprint.pprint(mint.expenditure)
     

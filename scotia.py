@@ -68,19 +68,21 @@ class scotia_visa:
 
     #Fixes naming format
     def fix_name(self):
-
+        
+        #Checks for words on remove list, removes it if present
         for description in self.name:
-            x = 0
-            
-            #Check if description contains words from remove checklist
-            while x == 0:
-                description = description.strip()
+            description = description.strip()
+            y = 0
+            while y == 0:
                 for word in Checklist.r_checklist:
-                    if description.endswith(word):
-                        description = description.rstrip(word)
-                        description = description.strip()
-                    else:
-                        x = 1
+                    x = 0
+                    while x == 0:
+                        if description.endswith(word):
+                            description = description.rstrip(word)
+                            description = description.rstrip()
+                        else:
+                            x = 1
+                    y = x
             
             #Checks for content existing in end checklist, replaces with replacement
             for i, word in enumerate(Checklist.e_checklist):
@@ -168,18 +170,20 @@ class scotia_debit:
     #Fixes naming format
     def fix_name(self):
 
+        #Checks for words on remove list, removes it if present
         for description in self.name:
-            x = 0
-            
-            #Check if description contains words from remove checklist
-            while x == 0:
-                description = description.strip()
+            description = description.strip()
+            y = 0
+            while y == 0:
                 for word in Checklist.r_checklist:
-                    if description.endswith(word):
-                        description = description.rstrip(word)
-                        description = description.strip()
-                    else:
-                        x = 1
+                    x = 0
+                    while x == 0:
+                        if description.endswith(word):
+                            description = description.rstrip(word)
+                            description = description.rstrip()
+                        else:
+                            x = 1
+                    y = x
             
             #Checks for content existing in end checklist, replaces with replacement
             for i, word in enumerate(Checklist.e_checklist):
