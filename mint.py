@@ -1,14 +1,15 @@
-from config import Configuration, Checklist
+from config import Date, Checklist
 import pandas as pd
 import re
 
+# class for mint csv files
 class mint:
     def __init__(self, mint_path):
         
         #Creating a dataframe out of the CSV file
         df = pd.read_csv(mint_path)
 
-        #Creation of lists
+        #Creation of variables and lists
         date = df['Date'].values.tolist()
         name = df['Description'].values.tolist()
         transaction = df['Amount'].values.tolist()
@@ -26,34 +27,38 @@ class mint:
         self.fixed_transaction = []
         self.expenditure = []
         
-    ##FIXING OVERALL LIST FORMAT
+    #Activates all fixes
     def clean_up(self):
         self.fix_date()
         self.fix_name()
         self.fix_transaction()
 
-    #Fixing date format
+    #Fixes date format
     def fix_date(self):
 
+        #Splits the date, makes them all 2 sig figs
         for entry in self.date:
             seperated = entry.split("/")
-            if len(seperated[Configuration.MONTH]) == 1:
-                fixed_m = '0' + seperated[Configuration.MONTH]
-                seperated[Configuration.MONTH] = fixed_m
-            if len(seperated[Configuration.DAY])== 1:
-                fixed_d = '0' + seperated[Configuration.DAY]
-                seperated[Configuration.DAY] = fixed_d
-            if len(seperated[Configuration.YEAR]) == 4:
-                fixed_y = seperated[Configuration.YEAR][2:]
-                seperated[Configuration.YEAR] = fixed_y
+            if len(seperated[Date.MONTH]) == 1:
+                fixed_m = '0' + seperated[Date.MONTH]
+                seperated[Date.MONTH] = fixed_m
+            if len(seperated[Date.DAY])== 1:
+                fixed_d = '0' + seperated[Date.DAY]
+                seperated[Date.DAY] = fixed_d
+            if len(seperated[Date.YEAR]) == 4:
+                fixed_y = seperated[Date.YEAR][2:]
+                seperated[Date.YEAR] = fixed_y
 
-            seperated[Configuration.MONTH], seperated[Configuration.DAY] = seperated[Configuration.DAY], seperated[Configuration.MONTH]
+            # Swaps position of month and day
+            seperated[Date.MONTH], seperated[Date.DAY] = seperated[Date.DAY], seperated[Date.MONTH]
             entry = "-".join(seperated)
+            # Inserts entry into front of fixed_date list -> Due to format of mint file
             self.fixed_date.insert(0, entry)
     
-    #Fixing transaction format
+    #Fixes transaction format
     def fix_transaction(self):    
         
+        # Produces list of the direction of money flow
         for i, expend in enumerate(self.ttype):
             x = re.search("^debit", expend)
             if x != None:
@@ -61,6 +66,7 @@ class mint:
             else:
                 self.expenditure.append("In")
         
+        # Formats to 2 sig figs, inserts to front of list -> Due to format of mint file
         for cost in self.transaction:
             cost = format(cost, '.2f')
             self.fixed_transaction.insert(0, cost)
@@ -68,7 +74,7 @@ class mint:
     #Fixing naming format
     def fix_name(self):
         
-
+        # Manual checks for things to strip
         for description in self.name:
             description = description.strip()
             
@@ -101,14 +107,17 @@ class mint:
             description = description.rstrip("#9685")
             description = description.rstrip()
 
+            #Checks for content existing in end checklist, replaces with replacement
             for i, item in enumerate(Checklist.e_checklist):
                 x = re.search(item + "$" , description)
                 if x != None:
                     description = Checklist.e_replacements[i]
 
+            #Checks for content existing in start checklist, replaces with replacement
             for i, item in enumerate(Checklist.s_checklist):
                 x = re.search("^" + item, description)
                 if x != None:
                     description = Checklist.s_replacements[i]
 
+            # Inserts entry into front of list -> Due to format of mint file
             self.fixed_name.insert(0, description)

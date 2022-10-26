@@ -1,28 +1,26 @@
 import os
-import pandas as pd
 import pprint
-import sys
-from config import Configuration
 from scotia import scotia_visa, scotia_debit
 from mint import mint
 from td import td
 
-
+#Open bank folder
 os.chdir('bank')
 x = os.listdir()
+
+#list of csvs inside the bank folder
 csvs = []
 
 for file in x:
     if '.csv' in file:
-        csvs.append(file)
-        
-        
+        csvs.append(file)        
+
+#matching file to their respective class       
 for file in csvs:
     if 'Scotia_Visa' in file:
         visa_path = file
         visa = scotia_visa(visa_path)
         visa.clean_up()
-
 
     elif "Scotia_Debit" in file:
         debit_path = file
@@ -40,6 +38,7 @@ for file in csvs:
         td.clean_up()
 
 #testcases
+print("Everything checks out chief")
 #pprint.pprint(visa.fixed_date)
 #pprint.pprint(visa.fixed_name)
 #pprint.pprint(debit.fixed_date)
@@ -47,5 +46,7 @@ for file in csvs:
 #pprint.pprint(mint.fixed_transaction)
 #pprint.pprint(mint.expenditure)
 #pprint.pprint(mint.fixed_date)
-pprint.pprint(td.fixed_transaction)
-pprint.pprint(td.expenditure)
+#pprint.pprint(td.fixed_transaction)
+#pprint.pprint(td.expenditure)
+#pprint.pprint(td.fixed_date)
+#pprint.pprint(td.fixed_name)
