@@ -98,12 +98,6 @@ class td:
             description = description.rstrip("OAKVILLE")
             description = description.rstrip()
 
-            description = description.rstrip("866-712-7753")
-            description = description.rstrip("C02404")
-            description = description.rstrip("C02404")
-            description = description.rstrip("#9685")
-            description = description.rstrip()
-
             #Checks for content existing in end checklist
             for i, item in enumerate(Checklist.e_checklist):
                 x = re.search(item + "$" , description)
