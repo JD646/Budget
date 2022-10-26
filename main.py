@@ -61,4 +61,5 @@ for file in csvs:
         #pprint.pprint(td.fixed_transaction)
         #pprint.pprint(td.expenditure)
 
+
 print("Everything checks out chief")

@@ -73,6 +73,7 @@ class td:
         for description in self.name:
             x = 0
             
+
             #Check if description contains words from remove checklist
             while x == 0:
                 description = description.strip()
