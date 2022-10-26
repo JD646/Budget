@@ -15,8 +15,7 @@ for file in x:
     if '.csv' in file:
         csvs.append(file)
         
-print(csvs)
-
+        
 for file in csvs:
     if 'Scotia_Visa' in file:
         visa_path = file
