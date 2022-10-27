@@ -75,19 +75,22 @@ class mint:
         #Checks for words on remove list, removes it if present
         for description in self.name:
             description = description.strip()
-            y = 0
+            
             # Try description.split() . It will return a space separated list.
             # e.g "Kyrel is    the best".split() -> ["Kyrel", "is", "the", "best"]
-            while y == 0:
-                for word in Checklist.r_checklist:
-                    x = 0
-                    while x == 0:
-                        if description.endswith(word):
-                            description = description.rstrip(word)
-                            description = description.rstrip()
-                        else:
-                            x = 1
-                    y = x
+            # x = description.(split)
+
+            # y = 0
+            # while y == 0:
+            #     for word in Checklist.r_checklist:
+            #         x = 0
+            #         while x == 0:
+            #             if description.endswith(word):
+            #                 description = description.rstrip(word)
+            #                 description = description.rstrip()
+            #             else:
+            #                 x = 1
+            #         y = x
             
             #Checks for content existing in end checklist, replaces with replacement
             for i, word in enumerate(Checklist.e_checklist):
