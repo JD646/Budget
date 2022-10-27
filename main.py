@@ -12,12 +12,12 @@ x = os.listdir()
 csvs = []
 
 for file in x:
-    if '.csv' in file:
+    if file.endswith('.csv'):
         csvs.append(file)        
 
 #matching file to their respective class       
 for file in csvs:
-    if 'Scotia_Visa' in file:
+    if file.startswith('Scotia_Visa'):
         visa_path = file
         visa = scotia_visa(visa_path)
         visa.clean_up()
@@ -28,7 +28,7 @@ for file in csvs:
         #pprint.pprint(visa.fixed_transaction)
         #pprint.pprint(visa.expenditure)
 
-    elif "Scotia_Debit" in file:
+    elif file.startswith('Scotia_Debit'):
         debit_path = file
         debit = scotia_debit(debit_path)
         debit.clean_up()
@@ -39,7 +39,7 @@ for file in csvs:
         #pprint.pprint(debit.fixed_transaction)
         #pprint.pprint(debit.expenditure)
     
-    elif "transactions" in file:
+    elif file.startswith('transactions'):
         mint_path = file
         mint = mint(mint_path)
         mint.clean_up()
@@ -50,7 +50,7 @@ for file in csvs:
         #pprint.pprint(mint.fixed_transaction)
         #pprint.pprint(mint.expenditure)
     
-    elif "td" in file:
+    elif file.startswith('td'):
         td_path = file
         td = td(td_path)
         td.clean_up()
