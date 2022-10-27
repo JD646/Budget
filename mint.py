@@ -76,6 +76,8 @@ class mint:
         for description in self.name:
             description = description.strip()
             y = 0
+            # Try description.split() . It will return a space separated list.
+            # e.g "Kyrel is    the best".split() -> ["Kyrel", "is", "the", "best"]
             while y == 0:
                 for word in Checklist.r_checklist:
                     x = 0
