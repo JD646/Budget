@@ -73,18 +73,14 @@ class td:
         
         #Checks for words on remove list, removes it if present
         for description in self.name:
-            description = description.strip()
-            y = 0
-            while y == 0:
-                for word in Checklist.r_checklist:
-                    x = 0
-                    while x == 0:
-                        if description.endswith(word):
-                            description = description.rstrip(word)
-                            description = description.rstrip()
-                        else:
-                            x = 1
-                    y = x
+            separated = description.split()
+            
+            # Checks for words on remove list, adds words not found in remove list into [corrected] to replace original phrase
+            corrected = []
+            for word in separated:
+                if word not in Checklist.r_checklist:
+                    corrected.append(word)
+            description = " ".join(corrected)
             
             #Checks for content existing in end checklist, replaces with replacement
             for i, word in enumerate(Checklist.e_checklist):
