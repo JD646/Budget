@@ -72,33 +72,13 @@ class scotia_visa:
         for description in self.name:
             separated = description.split()
             
-            # Checks for words on remove list, removes it if present
+            # Checks for words on remove list, adds words not found in remove list into [corrected] to replace original phrase
             corrected = []
             for word in separated:
                 if word not in Checklist.r_checklist:
                     corrected.append(word)
-            
             description = " ".join(corrected)
 
-        # Try description.split() . It will return a space separated list.
-            # e.g "Kyrel is    the best".split() -> ["Kyrel", "is", "the", "best"]
-            #x = description.(split)
-
-
-        # #Checks for words on remove list, removes it if present
-        # for description in self.name:
-        #     description = description.strip()
-        #     
-        #     #Remove words in removal checklist
-        #     while True:
-        #         for word in Checklist.r_checklist:
-        #             while True:
-        #                 if description.endswith(word):
-        #                     description = description.rstrip(word)
-        #                     description = description.rstrip()
-        #                 else:
-        #                     break 
-        #         break
             
             #Checks for content existing in end checklist, replaces with replacement
             for i, word in enumerate(Checklist.e_checklist):
@@ -159,7 +139,7 @@ class scotia_debit:
 
             # Swaps position of month and day
             seperated[Date.MONTH], seperated[Date.DAY] = seperated[Date.DAY], seperated[Date.MONTH]
-            entry = "-".corrected(seperated)
+            entry = "-".join(seperated)
 
             # Inserts entry into fixed_date list
             self.fixed_date.append(entry)
@@ -188,18 +168,14 @@ class scotia_debit:
 
         #Checks for words on remove list, removes it if present
         for description in self.name:
-            description = description.strip()
-            y = 0
-            while y == 0:
-                for word in Checklist.r_checklist:
-                    x = 0
-                    while x == 0:
-                        if description.endswith(word):
-                            description = description.rstrip(word)
-                            description = description.rstrip()
-                        else:
-                            x = 1
-                    y = x
+            separated = description.split()
+            
+            # Checks for words on remove list, adds words not found in remove list into [corrected] to replace original phrase
+            corrected = []
+            for word in separated:
+                if word not in Checklist.r_checklist:
+                    corrected.append(word)
+            description = " ".join(corrected)
             
             #Checks for content existing in end checklist, replaces with replacement
             for i, word in enumerate(Checklist.e_checklist):
