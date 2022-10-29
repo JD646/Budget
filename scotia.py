@@ -73,8 +73,9 @@ class scotia_visa:
     #Fixes naming format
     def fix_name(self):
         
-        for description in self.name:
+        for x, description in enumerate(self.name):
             separated = description.split()
+            self.category.append('Jonas')
             
             # Checks for words on remove list, adds words not found in remove list into [corrected] to replace original phrase
             corrected = []
@@ -82,18 +83,18 @@ class scotia_visa:
                 if word not in Checklist.r_checklist:
                     corrected.append(word)
             description = " ".join(corrected)
-
             
             #Checks for content existing in end checklist, replaces with replacement
             for i, word in enumerate(Checklist.e_checklist):
                 if description.endswith(word):
                     description = Checklist.e_replacements[i]
-
+                    self.category[x] = Checklist.e_category[i]
 
             #Checks for content existing in start checklist, replaces with replacement
             for i, word in enumerate(Checklist.s_checklist):
                 if description.startswith(word):
                     description = Checklist.s_replacements[i]
+                    self.category[x] = Checklist.s_category[i]
 
             #Insert into fixed_name list
             self.fixed_name.append(description)
@@ -176,8 +177,9 @@ class scotia_debit:
     def fix_name(self):
 
         #Checks for words on remove list, removes it if present
-        for description in self.name:
+        for x, description in enumerate(self.name):
             separated = description.split()
+            self.category.append('Jonas')
             
             # Checks for words on remove list, adds words not found in remove list into [corrected] to replace original phrase
             corrected = []
@@ -190,15 +192,13 @@ class scotia_debit:
             for i, word in enumerate(Checklist.e_checklist):
                 if description.endswith(word):
                     description = Checklist.e_replacements[i]
-                    self.category.append(e_category[i])
+                    self.category[x] = Checklist.e_category[i]
 
             #Checks for content existing in start checklist, replaces with replacement
             for i, word in enumerate(Checklist.s_checklist):
                 if description.startswith(word):
                     description = Checklist.s_replacements[i]
-                    self.category.append(s_category[i])
-                else:
-                    self.category.append('Jonas')
-                    
+                    self.category[x] = Checklist.s_category[i]
+
             #Insert into fixed_name list
             self.fixed_name.append(description)
