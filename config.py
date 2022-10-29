@@ -39,6 +39,13 @@ class Checklist:
                     "Shell - ",
                     "Pho Bros"
                     ]
+    #Start categories
+    s_category = ['Jonas', 'Finances', 'Outting', 'Outting',
+                'Jonas', 'Food', 'Landlord', 'Food',
+                'Food','Jonas', 'Landlord', 'Food',
+                'Groceries', 'Groceries', 'Jonas', 'Jonas', 'Jonas',
+                'Jonas', 'Finances', 'Landlord', 'Jonas',
+                'Jonas', 'Jonas', 'Jonas', 'Food']
     
     #End checklist
     e_checklist = ["EAT","EATS"]
@@ -46,6 +53,8 @@ class Checklist:
     e_replacements = ["UberEats - ",
                     "UberEats - "
                     ]
+    #End categories
+    e_category = ['Delivery','Delivery']
 
     #Remove checklist
     r_checklist = ["(GOOGLE", "PAY)", "(APPLE", "PAY)", 

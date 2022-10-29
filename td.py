@@ -22,6 +22,7 @@ class td:
         self.fixed_name =[]
         self.fixed_transaction = []
         self.expenditure = []
+        self.account = []
         
     #Activates all fixes
     def clean_up(self):
@@ -51,6 +52,8 @@ class td:
 
             # Inserts entry into fixed_date list
             self.fixed_date.append(entry)
+            # Labels which account it came from
+            self.account.append("TD - All Inclusive")
     
     #Fixes transaction format
     def fix_transaction(self):    

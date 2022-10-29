@@ -21,12 +21,19 @@ for file in csvs:
         visa_path = file
         visa = scotia_visa(visa_path)
         visa.clean_up()
+        # visa_dict = {'Date': visa.fixed_date,
+        #              'Expenditure': visa.expenditure,
+        #              'Description': visa.fixed_name,
+        #              'Category': visa.category,
+        #              'Account': visa.account,
+        #              'Amount': visa.transaction}
 
         #testcases
         #pprint.pprint(visa.fixed_date)
         #pprint.pprint(visa.fixed_name)
         #pprint.pprint(visa.fixed_transaction)
         #pprint.pprint(visa.expenditure)
+        #pprint.pprint(visa.account)
 
     elif file.startswith('Scotia_Debit'):
         debit_path = file
@@ -38,6 +45,8 @@ for file in csvs:
         #pprint.pprint(debit.fixed_name)
         #pprint.pprint(debit.fixed_transaction)
         #pprint.pprint(debit.expenditure)
+        #pprint.pprint(debit.account)
+        pprint.pprint(debit.category)
     
     elif file.startswith('transactions'):
         mint_path = file
@@ -49,6 +58,7 @@ for file in csvs:
         #pprint.pprint(mint.fixed_name)
         #pprint.pprint(mint.fixed_transaction)
         #pprint.pprint(mint.expenditure)
+        #pprint.pprint(mint.account)
     
     elif file.startswith('td'):
         td_path = file
@@ -60,6 +70,7 @@ for file in csvs:
         #pprint.pprint(td.fixed_name)
         #pprint.pprint(td.fixed_transaction)
         #pprint.pprint(td.expenditure)
+        #pprint.pprint(td.account)
 
 
 print("Everything checks out chief")

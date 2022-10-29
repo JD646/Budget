@@ -20,6 +20,8 @@ class scotia_visa:
         self.fixed_name =[]
         self.fixed_transaction = []
         self.expenditure = []
+        self.account = []
+        self.category = []
         
     #Activates all fixes
     def clean_up(self):
@@ -49,6 +51,8 @@ class scotia_visa:
 
             # Inserts entry into fixed_date list
             self.fixed_date.append(entry)
+            # Labels which account it came from
+            self.account.append("Scotia - Visa")
     
     #Fixes transaction format
     def fix_transaction(self):    
@@ -85,6 +89,7 @@ class scotia_visa:
                 if description.endswith(word):
                     description = Checklist.e_replacements[i]
 
+
             #Checks for content existing in start checklist, replaces with replacement
             for i, word in enumerate(Checklist.s_checklist):
                 if description.startswith(word):
@@ -113,6 +118,8 @@ class scotia_debit:
         self.fixed_name =[]
         self.fixed_transaction = []
         self.expenditure = []
+        self.account = []
+        self.category = []
         
     #Activates all fixes
     def clean_up(self):
@@ -143,6 +150,8 @@ class scotia_debit:
 
             # Inserts entry into fixed_date list
             self.fixed_date.append(entry)
+            # Labels which account it came from
+            self.account.append("Scotia - Debit")
 
 
     
@@ -181,11 +190,15 @@ class scotia_debit:
             for i, word in enumerate(Checklist.e_checklist):
                 if description.endswith(word):
                     description = Checklist.e_replacements[i]
+                    self.category.append(e_category[i])
 
             #Checks for content existing in start checklist, replaces with replacement
             for i, word in enumerate(Checklist.s_checklist):
                 if description.startswith(word):
                     description = Checklist.s_replacements[i]
+                    self.category.append(s_category[i])
+                else:
+                    self.category.append('Jonas')
                     
             #Insert into fixed_name list
             self.fixed_name.append(description)
