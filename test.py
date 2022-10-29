@@ -1,41 +1,35 @@
-from config import Date, Checklist
+#Visa testcases
+        #pprint.pprint(visa.fixed_date)
+        #pprint.pprint(visa.fixed_name)
+        #pprint.pprint(visa.fixed_transaction)
+        #pprint.pprint(visa.expenditure)
+        #pprint.pprint(visa.account)
+        #pprint.pprint(visa.category)
+        #pprint.pprint(visa_dict)
 
+#Debit testcases
+        #pprint.pprint(debit.fixed_date)
+        #pprint.pprint(debit.fixed_name)
+        #pprint.pprint(debit.fixed_transaction)
+        #pprint.pprint(debit.expenditure)
+        #pprint.pprint(debit.account)
+        #pprint.pprint(debit.category)
+        #pprint.pprint(debit_dict)
 
+#Mint testcases
+        #pprint.pprint(mint.fixed_date)
+        #pprint.pprint(mint.fixed_name)
+        #pprint.pprint(mint.fixed_transaction)
+        #pprint.pprint(mint.expenditure)
+        #pprint.pprint(mint.account)
+        #pprint.pprint(mint.category)
+        #pprint.pprint(mint_dict)
 
-
-def clean(description, word):
-    x = 0
-    description = description.strip()
-    print("Strip outside of if - " + description)
-    while x == 00:
-        if description.endswith(word):
-            description = description.rstrip(word)
-            print("Rstrip word - " + description)
-            description = description.rstrip()
-            print("Rstrip - " + description)
-        else:
-            print("completed w phrase - " + description)
-            x = 1
-
-def old_clean(description, word):
-    x = 0
-    while x == 0:
-        description = description.strip()
-        print("Strip outside of if - " + description)
-        for word in Checklist.r_checklist:
-            if description.endswith(word):
-                description = description.rstrip(word)
-                print("Rstrip word - " + description)
-                description = description.strip()
-                print("Rstrip - " + description)
-            else:
-                print("completed w phrase - " + description)
-                x = 1
-
-a = "THIRSTEA MISSISSAUGA     MISSISSAUGA  "
-
-
-clean(a, "MISSISSAUGA")
-print("VS")
-#old_clean(a)
-
+#TD testcases
+        #pprint.pprint(td.fixed_date)
+        #pprint.pprint(td.fixed_name)
+        #pprint.pprint(td.fixed_transaction)
+        #pprint.pprint(td.expenditure)
+        #pprint.pprint(td.account)
+        #pprint.pprint(td.category)
+        #pprint.pprint(td_dict)
