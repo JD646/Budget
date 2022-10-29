@@ -31,16 +31,7 @@ for file in csvs:
                      'Amount': visa.fixed_transaction}
         visa_df = pd.DataFrame(visa_dict)
         visa_df.to_csv('visa_processed.csv', index = False)
-        shutil.move("/home/anubis/git/budget/bank/visa_processed.csv","/mnt/c/users/jonas/desktop/visa_processed.csv")
-
-        #testcases
-        #pprint.pprint(visa.fixed_date)
-        #pprint.pprint(visa.fixed_name)
-        #pprint.pprint(visa.fixed_transaction)
-        #pprint.pprint(visa.expenditure)
-        #pprint.pprint(visa.account)
-        #pprint.pprint(visa.category)
-        #pprint.pprint(visa_dict)
+        shutil.move("/home/anubis/git/budget/bank/visa_processed.csv","/mnt/d/banking_files/visa_processed.csv")
 
     elif file.startswith('Scotia_Debit'):
         debit_path = file
@@ -54,16 +45,7 @@ for file in csvs:
                      'Amount': debit.fixed_transaction}
         debit_df = pd.DataFrame(debit_dict)
         debit_df.to_csv('debit_processed.csv', index = False)
-        shutil.move("/home/anubis/git/budget/bank/debit_processed.csv","/mnt/c/users/jonas/desktop/debit_processed.csv")
-
-        #testcases
-        #pprint.pprint(debit.fixed_date)
-        #pprint.pprint(debit.fixed_name)
-        #pprint.pprint(debit.fixed_transaction)
-        #pprint.pprint(debit.expenditure)
-        #pprint.pprint(debit.account)
-        #pprint.pprint(debit.category)
-        #pprint.pprint(debit_dict)
+        shutil.move("/home/anubis/git/budget/bank/debit_processed.csv","/mnt/d/banking_files/debit_processed.csv")
     
     elif file.startswith('transactions'):
         mint_path = file
@@ -77,16 +59,7 @@ for file in csvs:
                      'Amount': mint.fixed_transaction}
         mint_df = pd.DataFrame(mint_dict)
         mint_df.to_csv('mint_processed.csv', index = False)
-        shutil.move("/home/anubis/git/budget/bank/mint_processed.csv","/mnt/c/users/jonas/desktop/mint_processed.csv")
-
-        #testcases
-        #pprint.pprint(mint.fixed_date)
-        #pprint.pprint(mint.fixed_name)
-        #pprint.pprint(mint.fixed_transaction)
-        #pprint.pprint(mint.expenditure)
-        #pprint.pprint(mint.account)
-        #pprint.pprint(mint.category)
-        #pprint.pprint(mint_dict)
+        shutil.move("/home/anubis/git/budget/bank/mint_processed.csv","/mnt/d/banking_files/mint_processed.csv")
     
     elif file.startswith('td'):
         td_path = file
@@ -100,16 +73,7 @@ for file in csvs:
                      'Amount': td.fixed_transaction}
         td_df = pd.DataFrame(td_dict)
         td_df.to_csv('td_processed.csv', index = False)
-        shutil.move("/home/anubis/git/budget/bank/td_processed.csv","/mnt/c/users/jonas/desktop/td_processed.csv")
-
-        #testcases
-        #pprint.pprint(td.fixed_date)
-        #pprint.pprint(td.fixed_name)
-        #pprint.pprint(td.fixed_transaction)
-        #pprint.pprint(td.expenditure)
-        #pprint.pprint(td.account)
-        #pprint.pprint(td.category)
-        #pprint.pprint(td_dict)
+        shutil.move("/home/anubis/git/budget/bank/td_processed.csv","/mnt/d/banking_files/td_processed.csv")
 
 
-print("Everything checks out chief")
+print("Everything checks out chief, Files processed")
