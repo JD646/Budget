@@ -69,6 +69,7 @@ class mint:
         for cost in self.transaction:
             cost = format(cost, '.2f')
             self.fixed_transaction.insert(0, cost)
+        self.expenditure.reverse()
 
     #Fixes naming format
     def fix_name(self):
@@ -99,3 +100,5 @@ class mint:
 
             # Inserts entry into front of list -> Due to format of mint file
             self.fixed_name.insert(0, description)
+        self.category.reverse()
+        self.account.reverse()
