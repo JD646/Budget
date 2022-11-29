@@ -153,6 +153,8 @@ class scotia_debit:
             self.fixed_date.append(entry)
             # Labels which account it came from
             self.account.append("Scotia - Debit")
+        self.fixed_date.reverse()
+        self.account.reverse()
 
 
     
@@ -171,7 +173,8 @@ class scotia_debit:
                 cost = format(cost, '.2f')
                 self.fixed_transaction.append(cost)
                 self.expenditure.append("In")
-
+        self.fixed_transaction.reverse()
+        self.expenditure.reverse()
 
     #Fixes naming format
     def fix_name(self):
@@ -202,3 +205,4 @@ class scotia_debit:
 
             #Insert into fixed_name list
             self.fixed_name.append(description)
+        self.fixed_name.reverse()
