@@ -4,3 +4,4 @@ bank/
 __pycache__/
 credentials.json
 token.json
+output/
